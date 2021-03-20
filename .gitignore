@@ -1,0 +1,4 @@
+/.idea
+/bin
+**/.executable/*
+!**/.executable/.gitkeep
