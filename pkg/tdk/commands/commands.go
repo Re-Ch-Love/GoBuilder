@@ -30,7 +30,7 @@ func InvokeCommandAndOutputToSTDOUTInRealTime(name string, args ...string) error
 				return err
 			}
 		}
-		fmt.Printf(readString)
+		fmt.Print(readString)
 	}
 	return nil
 }
