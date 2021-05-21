@@ -3,15 +3,16 @@ package commands
 import (
 	"bufio"
 	"fmt"
-	"gitee.com/KongchengPro/GoBuilder/internal/app"
-	"gitee.com/KongchengPro/GoBuilder/pkg/tdk/caller"
-	"gitee.com/KongchengPro/GoBuilder/pkg/utils"
-	log "github.com/sirupsen/logrus"
 	"io"
 	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	"gitee.com/KongchengPro/GoBuilder/internal/app"
+	"gitee.com/KongchengPro/GoBuilder/pkg/tdk/caller"
+	"gitee.com/KongchengPro/GoBuilder/pkg/utils"
+	log "github.com/sirupsen/logrus"
 )
 
 // AddTask compiles the task source code and moves the executable file to `app.GoBuilderTasksDir`

@@ -3,11 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	. "gitee.com/KongchengPro/GoBuilder/pkg/log"
-	caller2 "gitee.com/KongchengPro/GoBuilder/pkg/tdk/caller"
-	"gitee.com/KongchengPro/GoBuilder/pkg/tdk/commands"
-	"gitee.com/KongchengPro/GoBuilder/pkg/utils"
-	log "github.com/sirupsen/logrus"
 	"io"
 	"os"
 	"os/exec"
@@ -15,6 +10,12 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	. "gitee.com/KongchengPro/GoBuilder/pkg/log"
+	caller2 "gitee.com/KongchengPro/GoBuilder/pkg/tdk/caller"
+	"gitee.com/KongchengPro/GoBuilder/pkg/tdk/commands"
+	"gitee.com/KongchengPro/GoBuilder/pkg/utils"
+	log "github.com/sirupsen/logrus"
 )
 
 var caller *caller2.TaskCaller

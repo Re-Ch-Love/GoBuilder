@@ -9,7 +9,22 @@ import (
 	"strings"
 )
 
-//goland:noinspection GoUnusedExportedFunction
+func InvokeCommand(cmdStr string) error {
+	name, args := ParseCommand(cmdStr)
+	return InvokeCommandAndOutputToSTDOUTInRealTime(name, args...)
+}
+
+func InvokeCommands(cmdStrArray ...string) error {
+	for _, cmdStr := range cmdStrArray {
+		name, args := ParseCommand(cmdStr)
+		if err := InvokeCommandAndOutputToSTDOUTInRealTime(name, args...); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// deprecated
 func InvokeCommandAndOutputToSTDOUTInRealTime(name string, args ...string) error {
 	cmd := exec.Command(name, args...)
 	stdout, err := cmd.StdoutPipe()
@@ -30,12 +45,12 @@ func InvokeCommandAndOutputToSTDOUTInRealTime(name string, args ...string) error
 				return err
 			}
 		}
-		fmt.Printf(readString)
+		fmt.Print(readString)
 	}
 	return nil
 }
 
-//goland:noinspection GoUnusedExportedFunction
+// deprecated
 func InvokeCommandAndOutputPerByteToBytesInRealTime(output *[]byte, name string, args ...string) error {
 	cmd := exec.Command(name, args...)
 	stdout, err := cmd.StdoutPipe()
@@ -61,7 +76,7 @@ func InvokeCommandAndOutputPerByteToBytesInRealTime(output *[]byte, name string,
 	return nil
 }
 
-//goland:noinspection GoUnusedExportedFunction
+// deprecated
 func InvokeCommandAndOutputPerLineToBytesInRealTime(output *[]byte, name string, args ...string) error {
 	cmd := exec.Command(name, args...)
 	stdout, err := cmd.StdoutPipe()
@@ -87,7 +102,7 @@ func InvokeCommandAndOutputPerLineToBytesInRealTime(output *[]byte, name string,
 	return nil
 }
 
-//goland:noinspection GoUnusedExportedFunction
+// deprecated
 func InvokeCommandAndOutputToSTDOUTAtOnce(name string, args ...string) error {
 	cmd := exec.Command(name, args...)
 	outputBytes, err := cmd.CombinedOutput()
@@ -98,7 +113,7 @@ func InvokeCommandAndOutputToSTDOUTAtOnce(name string, args ...string) error {
 	return nil
 }
 
-//goland:noinspection GoUnusedExportedFunction
+// deprecated
 func InvokeCommandAndOutputToBytesAtOnce(output *[]byte, name string, args ...string) error {
 	cmd := exec.Command(name, args...)
 	outputBytes, err := cmd.CombinedOutput()
@@ -109,7 +124,6 @@ func InvokeCommandAndOutputToBytesAtOnce(output *[]byte, name string, args ...st
 	return nil
 }
 
-//goland:noinspection GoUnusedExportedFunction
 func ParseArgs(str string) []string {
 	var cmd []string
 	var buffer bytes.Buffer
@@ -137,7 +151,6 @@ func ParseArgs(str string) []string {
 	return cmd
 }
 
-//goland:noinspection GoUnusedExportedFunction
 func ParseCommand(str string) (string, []string) {
 	s := strings.SplitN(str, " ", 2)
 	if len(s) == 1 {
