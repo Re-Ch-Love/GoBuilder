@@ -79,7 +79,7 @@ GoBuilder兼容任何Go项目，无论之前使用什么构建工具，是否使
    > cd SayHello
    > touch main.go
    ```
-   `main.go`的文件内容请 [点击此处](https://gitee.com/KongchengPro/GoBuilder/blob/main/example/gobuilder/tasks/SayHello/main.go)
+   `main.go`的文件内容请 [点击此处](https://gitee.com/KongchengPro/GoBuilder/blob/master/example/gobuilder/tasks/SayHello/main.go)
    查看
 
 5. 添加并运行task，先回到项目目录
@@ -110,7 +110,7 @@ runTask - 运行`gobuilder/.executable/taskName(.exe)`并传入json序列化的�
 
 ## 示例
 
-[实现批量交叉编译的task](https://gitee.com/KongchengPro/GoBuilder/blob/main/example/gobuilder/tasks/build-x/main.go)
+[实现批量交叉编译的task](https://gitee.com/KongchengPro/GoBuilder/blob/master/example/gobuilder/tasks/build-x/main.go)
 
 ## 背景
 
