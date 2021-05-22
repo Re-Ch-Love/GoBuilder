@@ -2,14 +2,7 @@ package caller
 
 import (
 	"encoding/json"
-	"os"
 )
-
-var CurrentTaskCaller *TaskCaller
-
-func init() {
-	CurrentTaskCaller = UnmarshalArgs(os.Args[1])
-}
 
 // TaskCaller contains the arguments which pass to task.
 // Using struct can make it more convenient to subsequent update.
